@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, paper and scissors</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        // 1-rock, 2-paper and 3-scissors
+        function getComputerChoice() {
+            return Math.floor(Math.random() * 3) + 1;
+        }
+
+        function getUserChoice() {
+            let userPrompt = prompt("What is your choice? (Rock, paper or scissors)").toLowerCase()
+            let userChoice;
+            switch (userPrompt.toLowerCase()) {
+                case "rock":
+                    userChoice = 1;
+                    break
+                case "paper":
+                    userChoice = 2;
+                    break;
+                case "scissors":
+                    userChoice = 3;
+                    break;
+                default:
+                    console.log("Falsy input")
+                    break;
+            }
+
+            return userChoice;
+        }
+    </script>
+</body>
+
+</html>
