@@ -47,12 +47,12 @@
             let lose = `You lose! ${compChoiceStr} beats ${humanChoiceStr}.`
             let win = `You win! ${humanChoiceStr} beats ${compChoiceStr}.`
             if (humanChoice == computerChoice) {
-                console.log("Equality for " + humanChoiceStr);
+                alert("Equality for " + humanChoiceStr);
             } else if ((humanChoice == 1 && computerChoice == 2) || (humanChoice == 2 && computerChoice == 1) || (humanChoice === 3 && computerChoice == 1)) {
-                console.log(lose)
+                alert(lose)
                 computerScore++
             } else {
-                console.log(win)
+                alert(win)
                 humanScore++;
             }
         }
@@ -62,7 +62,7 @@
                 playRound(getUserChoice(),getComputerChoice());
             }
             let result = humanScore>computerScore?"You win the total game!":humanScore<computerScore?"You lose the total game!":"Totally draw!";
-            console.log(`${result} - Human(${humanScore}) -- Machine(${computerScore})`)
+            alert(`${result} - Human(${humanScore}) -- Machine(${computerScore})`)
         }
 
         playGame();
