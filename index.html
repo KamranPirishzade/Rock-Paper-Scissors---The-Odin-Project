@@ -37,6 +37,35 @@
 
             return userChoice;
         }
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound(humanChoice, computerChoice) {
+            let humanChoiceStr = humanChoice == 1 ? "Rock" : humanChoice == 2 ? "Paper" : "Scissors";
+            let compChoiceStr = computerChoice == 1 ? "Rock" : computerChoice == 2 ? "Paper" : "Scissors";
+            let lose = `You lose! ${compChoiceStr} beats ${humanChoiceStr}.`
+            let win = `You win! ${humanChoiceStr} beats ${compChoiceStr}.`
+            if (humanChoice == computerChoice) {
+                console.log("Equality for " + humanChoiceStr);
+            } else if ((humanChoice == 1 && computerChoice == 2) || (humanChoice == 2 && computerChoice == 1) || (humanChoice === 3 && computerChoice == 1)) {
+                console.log(lose)
+                computerScore++
+            } else {
+                console.log(win)
+                humanScore++;
+            }
+        }
+
+        function playGame(){
+            for(let i=0;i<5;i++){
+                playRound(getUserChoice(),getComputerChoice());
+            }
+            let result = humanScore>computerScore?"You win the total game!":humanScore<computerScore?"You lose the total game!":"Totally draw!";
+            console.log(`${result} - Human(${humanScore}) -- Machine(${computerScore})`)
+        }
+
+        playGame();
     </script>
 </body>
 
