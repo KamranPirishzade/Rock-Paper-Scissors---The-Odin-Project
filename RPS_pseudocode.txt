@@ -1,0 +1,8 @@
+2 Side play game
+Have 3 options each OF them
+Functions for getting choice  
+Computer choice is random
+User choose one of the three options 
+Game checks and logs: Win,lose and equal respectively using new function
+New function for play game for 5 rounds and shows alert of result 
+

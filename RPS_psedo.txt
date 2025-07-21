@@ -1,6 +1,0 @@
-2 Side play game
-Have 3 options each 
-Computer choice is random
-User choose one of the three options 
-Game checks and logs: Win,lose and equal respectively
-Game ask user for new game
