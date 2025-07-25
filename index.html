@@ -8,64 +8,64 @@
 </head>
 
 <body>
+    <h1>Rock, Paper and Scissors</h1>
 
+    <div class="btns">
+        <button class="btn" value="1">Rock</button>
+        <button class="btn" value="2">Paper</button>
+        <button class="btn" value="3">Scissors</button>
+    </div>
+    <div class="result">
+        <p class="round-result"></p>
+        <p class="scoreboard"></p>
+    </div>
 
 
     <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
+        document.querySelectorAll(".btn").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                playRound(Number(e.target.value), getComputerChoice());
+            })
+        })
+
         // 1-rock, 2-paper and 3-scissors
         function getComputerChoice() {
             return Math.floor(Math.random() * 3) + 1;
         }
 
-        function getUserChoice() {
-            let userPrompt = prompt("What is your choice? (Rock, paper or scissors)").toLowerCase()
-            let userChoice;
-            switch (userPrompt.toLowerCase()) {
-                case "rock":
-                    userChoice = 1;
-                    break
-                case "paper":
-                    userChoice = 2;
-                    break;
-                case "scissors":
-                    userChoice = 3;
-                    break;
-                default:
-                    console.log("Falsy input")
-                    break;
+        function showScore() {
+            let score = document.querySelector(".scoreboard")
+            score.textContent = `${humanScore} - ${computerScore}`;
+            if (humanScore == 5 || computerScore == 5) {
+                score.textContent += humanScore > computerScore ? " You are winner!" : " You lose try again!";
+                humanScore = 0;
+                computerScore = 0;
             }
-
-            return userChoice;
         }
 
-        let humanScore = 0;
-        let computerScore = 0;
+
 
         function playRound(humanChoice, computerChoice) {
             let humanChoiceStr = humanChoice == 1 ? "Rock" : humanChoice == 2 ? "Paper" : "Scissors";
             let compChoiceStr = computerChoice == 1 ? "Rock" : computerChoice == 2 ? "Paper" : "Scissors";
             let lose = `You lose! ${compChoiceStr} beats ${humanChoiceStr}.`
             let win = `You win! ${humanChoiceStr} beats ${compChoiceStr}.`
+            let result = document.querySelector(".round-result")
             if (humanChoice == computerChoice) {
-                alert("Equality for " + humanChoiceStr);
+                result.textContent = "Equality for " + humanChoiceStr
             } else if ((humanChoice == 1 && computerChoice == 2) || (humanChoice == 2 && computerChoice == 1) || (humanChoice === 3 && computerChoice == 1)) {
-                alert(lose)
+                result.textContent = lose;
                 computerScore++
             } else {
-                alert(win)
+                result.textContent = win;
                 humanScore++;
             }
+            showScore();
         }
 
-        function playGame(){
-            for(let i=0;i<5;i++){
-                playRound(getUserChoice(),getComputerChoice());
-            }
-            let result = humanScore>computerScore?"You win the total game!":humanScore<computerScore?"You lose the total game!":"Totally draw!";
-            alert(`${result} - Human(${humanScore}) -- Machine(${computerScore})`)
-        }
-
-        playGame();
     </script>
 </body>
 

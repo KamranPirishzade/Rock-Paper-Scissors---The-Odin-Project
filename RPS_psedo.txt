@@ -4,5 +4,4 @@ Functions for getting choice
 Computer choice is random
 User choose one of the three options 
 Game checks and logs: Win,lose and equal respectively using new function
-New function for play game for 5 rounds and shows alert of result 
-
+New function for play game for 5 rounds and shows alert of
